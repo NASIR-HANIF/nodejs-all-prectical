@@ -1,0 +1,30 @@
+node index.js enter
+karney se index ki file chal jaye gi
+
+nodemon index.js enter karney se nodemon me 
+file chal jaye gi
+ager file ka name index.js hey to 
+sirf nodemon likh ke enter karney se 
+bhi index.js file chal jaye gi
+
+
+control c enter karney se nodemon band ho jaye ga
+
+jis folder me nodjs ka project bana huva hey us folder me ja ke 
+us ke address me cmd enter karney pe wo folder cmd me open ho ga 
+or cmd me nodemon likh ke enter karney pe nodemon start ho jaye ga
+
+nodejs me alert ,conform ,promet,docoment.write
+ye tamam graffic effect ke sath dekhai detey hen is leye
+ye code node js me error creat karen gey
+
+api 2 terha ki hoti hen 1 me json formate me response 
+ status code header
+information bhajhtey hen,
+or 
+dosra response sope ke formate me bhajtey hen 
+or status code bhi or xml form me tag bana ke 
+
+or jo bhi opreations hen un ko full fill karna zaroori hey
+tab hi wo full api he mana jaye ga 
+

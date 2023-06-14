@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form submit</title>
+</head>
+
+<body>
+    <form>
+        <label for="username">User Name</label>
+        <br />
+        <br />
+        <input type="text" name="username" id="username">
+        <br>
+        <br>
+        <label for="password">password</label>
+        <br />
+        <br />
+        <input type="text" name="password" id="password">
+        <br>
+        <br>
+        <input type="submit" value="submit">
+    </form>
+    <div id="result">
+
+    </div>
+    <script>
+
+
+        // get request
+/*
+        
+        let form = document.querySelector("form");
+      form.onsubmit =  function demo(e) {
+            e.preventDefault()
+            let userName = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
+            const ajex = new XMLHttpRequest();
+            let url = "http://localhost:2000?username="+userName+"&password="+password;
+            ajex.open("GET",url, true);
+                ajex.send();
+            ajex.onreadystatechange = function () {   
+                if (ajex.readyState == 4) {
+                    let resData = JSON.parse(ajex.responseText);
+                    document.getElementById("result").innerHTML = resData.message;
+                }
+            }
+
+        }
+*/
+
+        // post request
+
+        
+        let form = document.querySelector("form");
+      form.onsubmit =  function demo(e) {
+            e.preventDefault()
+            let userName = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
+            const ajex = new XMLHttpRequest();
+            let url = "http://localhost:2000";
+            ajex.open("POST",url, true);
+                ajex.send("username="+userName+"&password="+password);
+            ajex.onreadystatechange = function () {   
+                if (ajex.readyState == 4) {
+                    if(ajex.status == 401){
+                        let resData = JSON.parse(ajex.responseText);
+
+                        document.getElementById("result").style.color = "red";
+                        document.getElementById("result").innerHTML = resData.message;
+                    }else if(ajex.status == 200){
+                        let resData = JSON.parse(ajex.responseText);
+                    document.getElementById("result").innerHTML = resData.message;
+                    }
+                }
+            }
+
+        }
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promiss</title>
+</head>
+
+<body>
+    <h1>why use promiss</h1>
+    <p>
+        ager app chahtey hen keh app ka function jis ka name firstFunction() 
+        hey data collect karney ke baad ,ya apna ander mojood code ka response ko 
+        jo keh success me ho ya reject ki soret me ho dosre function 
+        jis ka Name 
+        secFunction .. ....
+        ko data de or us waqat tek secFunction intezar karey firstFunction ke 
+        resolve ya reject honey ka jab tek sec Function ko firstFunction ki teraf
+        se data mosool nahi ho ga us waqat tek secFunction kam nahi karey ga 
+        is tarha ke function ko promise ke zaryey he chalaye jaye ga 
+         1 new promis karna ho ga  or us ke 2 result hun gey 
+         pehla perameter resolve me data return karey ga or dosra perameter 
+         reject me result ko bhajay ga   
+    </p>
+        <h3>secFunction</h3> 
+         
+
+    <p>
+        jis function me promiss function ke return ko reseve karna ho ga ,,,
+
+        promise se return data ko agher try or catch block se access karen gey to  
+        
+    </p>
+
+
+    <script>
+
+
+        function firstFunction() {
+            const ajex = new XMLHttpRequest();
+            ajex.open("GET", "https://jsonplaceholder.typicode.com/comments", true);
+            ajex.send();
+            return new Promise((resulve, reject) => {
+                ajex.onload = function () {
+                    let data = ajex.response
+                    resulve(data)
+                 
+                }
+            })
+
+        }
+
+        const secFunction = async () => {
+            try {
+                const response = await firstFunction();
+                console.log(response)
+            } catch (error) {
+                console.log("i am error")
+            }
+
+        }
+        secFunction();
+
+
+
+
+
+
+
+
+
+
+// promise then and catch function 
+
+        /*
+              function demo() {
+                    const ajex = new XMLHttpRequest();
+                    ajex.open("GET","https://jsonplaceholder.typicode.com/comments", true);
+                    ajex.send();
+                   return new Promise((resulve,reject)=>{
+                        ajex.onload = function () {
+                            let data = ajex.response
+                            resulve(data) 
+                        } 
+                    })
+                       
+                    }
+                
+                demo().then((success)=>{
+                    console.log(success)
+        
+                }).catch((error)=>{
+                    console.log("i am error")
+                })
+                */
+
+    </script>
+</body>
+
+</html>
